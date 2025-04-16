@@ -16,7 +16,7 @@ const localUrl = import.meta.env.VITE_BASE_URL;
 const liveUrl = import.meta.env.VITE_LIVE_URL;
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: `${development === 'development' ? localUrl : liveUrl}`,
+  baseUrl: `${development === 'production' ? localUrl : liveUrl}`,
   credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;

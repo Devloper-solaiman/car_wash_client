@@ -85,7 +85,7 @@ const FavoriteService: FC = () => {
                   </Button>
                   <Button
                     as={Link}
-                    href={`/service-details/${service._id}`}
+                    to={`/service-details/${service._id}`}
                     className="text-white w-[150px] h-[30px]"
                     color="warning"
                     variant="solid"

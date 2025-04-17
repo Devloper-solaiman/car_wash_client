@@ -110,8 +110,15 @@ const PastBooking: FC<TPastBookingProps> = () => {
                 {booking.slot[0]?.date}
               </p>
               <p className="text-bold text-sm capitalize whitespace-nowrap text-default-400">
-                {formatTo12Hour(booking.slot[0]?.startTime)} -{' '}
-                {formatTo12Hour(booking.slot[0]?.endTime)}
+                {/* Adding check for undefined values */}
+                {booking.slot[0]?.startTime && booking.slot[0]?.endTime ? (
+                  <>
+                    {formatTo12Hour(booking.slot[0]?.startTime)} -{' '}
+                    {formatTo12Hour(booking.slot[0]?.endTime)}
+                  </>
+                ) : (
+                  "Invalid Time"
+                )}
               </p>
             </div>
           );

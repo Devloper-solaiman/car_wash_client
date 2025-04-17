@@ -33,6 +33,7 @@ import NavBarCountDown from "./NavBarCountDown";
 import Logo from "../ui/Logo";
 import { getAllFavoriteServices } from "../../redux/features/service/serviceSlice";
 import { Heart, Menu, ShoppingBag } from "lucide-react";
+import Loader from "../Loader/Loader";
 
 const NavBar: FC = () => {
   const { email, role } = useAppSelector(useCurrentUser) || {};
@@ -40,7 +41,10 @@ const NavBar: FC = () => {
   const navigate = useNavigate();
   const { data: userDetails } = useGetMeQuery(email);
   const { profileImg, name } = userDetails?.data || ({} as TUser);
-  const { data: booking } = useGetAllMyBookingsQuery({ sort: "-createdAt" });
+  // const { data: booking } = useGetAllMyBookingsQuery({ sort: "-createdAt" });
+
+  const { data: booking, isLoading, isError, error } = useGetAllMyBookingsQuery({ sort: "-createdAt" });
+
   const slotBookingData = useAppSelector(getAllSlotBooking);
   const token = useAppSelector(useCurrentUserToken);
   let user;
@@ -58,7 +62,15 @@ const NavBar: FC = () => {
     { name: "Bookings", path: "/booking" },
     { name: "Favorite", path: "/favorites-services" },
   ].filter(Boolean);
-
+  if (isLoading) {
+    return <Loader />
+  }
+  if (isError) {
+    console.error(error);
+    return <div>Error occurred while fetching data!</div>;
+  }
+  const safeBooking = booking || { data: [] };
+  const slotDates = safeBooking.data?.[0]?.slot?.[0]?.date;
   return (
     <Navbar
       maxWidth="xl"
@@ -84,10 +96,9 @@ const NavBar: FC = () => {
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `px-1 py-2 text-sm font-medium transition-colors ${
-                    isActive
-                      ? "text-default-500 border-b-2 border-warning"
-                      : "text-foreground/60 hover:bg-accent hover:text-accent-foreground"
+                  `px-1 py-2 text-sm font-medium transition-colors ${isActive
+                    ? "text-default-500 border-b-2 border-warning"
+                    : "text-foreground/60 hover:bg-accent hover:text-accent-foreground"
                   }`
                 }
               >
@@ -102,13 +113,9 @@ const NavBar: FC = () => {
         <NavbarItem>
           <Tooltip content="Recent booking slot will start">
             <NavbarItem className="hidden lg:block mt-3">
-              {booking?.data?.length && role === "user" && (
+              {slotDates && role === "user" && (
                 <NavBarCountDown
-                  slotDates={
-                    booking?.data?.[0]?.slot
-                      ? [[booking.data[0].slot[0].date]]
-                      : []
-                  }
+                  slotDates={[[slotDates]]}
                 />
               )}
             </NavbarItem>
@@ -176,7 +183,7 @@ const NavBar: FC = () => {
                 </DropdownItem>
 
                 <DropdownItem
-                key='admin'
+                  key='admin'
                   className={`${role === "admin" ? "" : "hidden"}`}
                   onClick={() => navigate("/dashboard/dashboard")}
                 >
@@ -212,10 +219,9 @@ const NavBar: FC = () => {
             <NavLink
               to={item.path}
               className={({ isActive }) =>
-                `px-1 py-2 text-sm font-medium transition-colors ${
-                  isActive
-                    ? "text-default-500 border-b-2 border-warning"
-                    : "text-foreground/60 hover:bg-accent hover:text-accent-foreground"
+                `px-1 py-2 text-sm font-medium transition-colors ${isActive
+                  ? "text-default-500 border-b-2 border-warning"
+                  : "text-foreground/60 hover:bg-accent hover:text-accent-foreground"
                 }`
               }
             >

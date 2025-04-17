@@ -34,10 +34,10 @@ export const FeatureCard: React.FC<PerfectCardProps> = ({
         </CardBody>
         <CardHeader className="flex flex-col  items-start">
           <h2 className="font-bold text-gray-900 dark:text-gray-100">
-            {truncateText(name, 40)}
+            {truncateText(name, 30)}
           </h2>
           <p className="text-sm text-gray-700 dark:text-gray-200">
-            {truncateText(description, 70)}
+            {truncateText(description, 50)}
           </p>
         </CardHeader>
 
@@ -48,7 +48,6 @@ export const FeatureCard: React.FC<PerfectCardProps> = ({
             <span className="flex justify-center items-center dark:text-white text-small bg-warning-200 py-1 px-2 rounded-2xl">
               <FaFire size={18} className="text-warning-600"/> Trending
             </span>
-          
         </CardFooter>
       </Card>
     </a>

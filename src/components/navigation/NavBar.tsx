@@ -141,7 +141,7 @@ const NavBar: FC = () => {
                   isIconOnly
                   size="md"
                   variant="ghost"
-                  onClick={() => navigate("/favorites-services")}
+                  onClick={() => navigate("/booking")}
                   startContent={<ShoppingBag className="h-5 w-5" />}
                 />
                 <div className="bg-warning-500 absolute top-0 right-0 w-4 h-4 rounded-full text-white text-xs flex items-center justify-center">
@@ -165,7 +165,6 @@ const NavBar: FC = () => {
               </DropdownTrigger>
               <DropdownMenu aria-label="Profile Actions" variant="flat">
                 <DropdownItem key="profile" className="h-14 gap-2">
-                  <p className="font-semibold">Signed in as</p>
                   <p className="font-semibold">{email}</p>
                 </DropdownItem>
                 <DropdownItem

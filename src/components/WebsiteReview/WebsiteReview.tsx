@@ -5,7 +5,6 @@ import { Button } from '@nextui-org/react';
 import { useAppSelector } from '../../redux/hook';
 import { useCurrentUser } from '../../redux/features/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
-import RatingDisplay from './Rating';
 import AddReviewModal from '../modal/AddReviewModal';
 import WebsiteReviewSkeleton from './WebsiteReviewSkeleton';
 import SectionTitle from '../ui/SectionTitle';
@@ -18,6 +17,7 @@ import 'swiper/css/navigation';
 import SwiperCore from 'swiper';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import Container from '../ui/Container';
+import { FaStar } from 'react-icons/fa6';
 
 type WebsiteReviewType = {
   _id: string;
@@ -48,7 +48,7 @@ const WebsiteReview: FC = () => {
   const overallRating =
     websiteReviews.length > 0
       ? websiteReviews.reduce((acc, review) => acc + review.rating, 0) /
-        websiteReviews.length
+      websiteReviews.length
       : 0;
 
   if (reviewLoading) {
@@ -78,7 +78,14 @@ const WebsiteReview: FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-3 mb-6">
           <div className="text-center flex items-center gap-3 font-semibold">
             Overall website rating: {overallRating.toFixed(1)} / 5{' '}
-            <RatingDisplay rating={overallRating} size={14} color="#D4D4D8" />
+            {[...Array(5)].map((_, index) => (
+              <FaStar
+                key={index}
+                size={14}
+                color={index ? '#FFB800' : '#E4E6E7'}
+                className="text-warning-600"
+              />
+            ))}
           </div>
 
           {user ? (
@@ -137,11 +144,14 @@ const WebsiteReview: FC = () => {
                           {review.user?.name}
                         </h3>
                         <div className="flex space-x-1 text-warning">
-                          <RatingDisplay
-                            rating={review.rating}
-                            size={14}
-                            color="#E4E6E7"
-                          />
+                          {[...Array(5)].map((_, index) => (
+                            <FaStar
+                              key={index}
+                              size={14}
+                              color={index < review.rating ? '#FFB800' : '#E4E6E7'}
+                              className="text-warning-600"
+                            />
+                          ))}
                         </div>
                       </div>
                     </div>{' '}

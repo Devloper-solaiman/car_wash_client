@@ -135,10 +135,10 @@ const FeaturedServices: FC<TFeaturedServicesProps> = () => {
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           modules={[Pagination, Autoplay]}
           breakpoints={{
-            640: { slidesPerView: 2 },
-            768: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 },
-            1280: { slidesPerView: 5 },
+            640: { slidesPerView:2 },
+            768: { slidesPerView:4 },
+            1024: { slidesPerView:5 },
+            1280: { slidesPerView:6 },
           }}
         >
           {services.map((service) => (

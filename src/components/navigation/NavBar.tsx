@@ -39,7 +39,8 @@ const NavBar: FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { data: userDetails } = useGetMeQuery(email);
-  const { profileImg, name } = userDetails?.data.data || ({} as TUser);
+  const { profileImg} = userDetails?.data.profileImg || ({} as TUser);
+  const { name } = userDetails?.data.name || ({} as TUser);
   console.log( 'me_Data',userDetails)
   const { data: booking } = useGetAllMyBookingsQuery({ sort: "-createdAt" });
   const slotBookingData = useAppSelector(getAllSlotBooking);

@@ -162,7 +162,7 @@ const NavBar: FC = () => {
                   as="button"
                   className="transition-transform size-7"
                   name={name}
-                  src={userDetails?.data.profileImg}
+                  src={profileImg}
                 />
               </DropdownTrigger>
               <DropdownMenu aria-label="Profile Actions" variant="flat">

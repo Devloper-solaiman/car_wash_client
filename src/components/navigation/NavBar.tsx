@@ -39,8 +39,8 @@ const NavBar: FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { data: userDetails } = useGetMeQuery(email);
-  const { profileImg} = userDetails?.data.profileImg || ({} as TUser);
-  const { name } = userDetails?.data.name || ({} as TUser);
+  const { profileImg} = userDetails?.data|| ({} as TUser);
+  const { name } = userDetails?.data|| ({} as TUser);
   console.log( 'me_Data',profileImg, name)
   const { data: booking } = useGetAllMyBookingsQuery({ sort: "-createdAt" });
   const slotBookingData = useAppSelector(getAllSlotBooking);
@@ -162,7 +162,7 @@ const NavBar: FC = () => {
                   as="button"
                   className="transition-transform size-7"
                   name={name}
-                  src={profileImg}
+                  src={userDetails?.data.profileImg}
                 />
               </DropdownTrigger>
               <DropdownMenu aria-label="Profile Actions" variant="flat">

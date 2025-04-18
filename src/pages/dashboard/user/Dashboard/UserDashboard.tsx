@@ -60,11 +60,8 @@ const UserDashboard: FC = () => {
     if (!selectedImage) return;
 
     const toastId = toast.loading('Updating your profile...');
-    const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${
-      import.meta.env.VITE_CLOUDINARY_NAME
-    }/image/upload`;
-    const cloudinaryUploadPreset = import.meta.env
-      .VITE_CLOUDINARY_UPLOAD_PRESET;
+    const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_NAME}/image/upload`;
+    const cloudinaryUploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
 
     const formData = new FormData();
     formData.append('file', selectedImage);

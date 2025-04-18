@@ -17,7 +17,7 @@ const BackButton: FC<TBackButtonProps> = () => {
         className="bg-default-100/50"
       ></Button>
       <Button
-        className="bg-transparent border border-default-100/50"
+        className="bg-transparent dark:text-black dark:bg-warning-600 bg-warning-300 border border-default-100/50"
         onClick={() => navigate("/")}
       >
         Go Home

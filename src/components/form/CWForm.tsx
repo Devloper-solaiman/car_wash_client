@@ -36,7 +36,7 @@ const CWForm = <T extends FieldValues = FieldValues>({
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(handleSubmit)}>{children}</form>
+      <form className='dark:text-black' onSubmit={methods.handleSubmit(handleSubmit)}>{children}</form>
     </FormProvider>
   );
 };

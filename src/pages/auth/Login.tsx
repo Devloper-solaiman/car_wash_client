@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Button, Checkbox } from "@nextui-org/react";
 import { FC, useEffect, useState } from "react";
 import { IoMdLock, IoMdMail } from "react-icons/io";
@@ -124,7 +125,7 @@ const Login: FC = () => {
           <div
             style={{
               backgroundImage:
-                "url('https://auto-brite.ca/wp-content/uploads/2022/04/unnamed-1-1.jpg')",
+                "url('https://res.cloudinary.com/dcbvputnw/image/upload/v1744122824/carw_rdnaqa.webp')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

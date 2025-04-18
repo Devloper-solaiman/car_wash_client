@@ -62,7 +62,7 @@ const SignUp: FC = () => {
           <div
             style={{
               backgroundImage:
-                "url('https://images.unsplash.com/photo-1722797709475-2fbd19f27948?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+                "url('https://res.cloudinary.com/dcbvputnw/image/upload/v1744088429/ndmvxsqlfgr57fbncdws.png')",
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}

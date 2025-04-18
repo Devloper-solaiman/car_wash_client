@@ -7,11 +7,12 @@ import SearchInput from "../Banner/SearchInput";
 // import SearchInput from "./SearchInput";
 
 const images = [
-  "https://images.pexels.com/photos/3354648/pexels-photo-3354648.jpeg",
-  "https://img.freepik.com/premium-photo/man-washing-car-with-word-spray-hood_763111-289060.jpg",
-  "https://img.freepik.com/premium-photo/photo-portrait-cleaning-service-man-washing-car_763111-288929.jpg",
-  "https://img.freepik.com/premium-photo/photo-portrait-man-washing-car-cleaning-car_763111-223754.jpg?w=996",
-  "https://images.unsplash.com/photo-1650356060624-1b5909c58b8c?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://res.cloudinary.com/dcbvputnw/image/upload/v1744123512/qq_qppajp.jpg",
+  "https://res.cloudinary.com/dcbvputnw/image/upload/v1744123407/Washing_cars_dufgrv.webp",
+  "https://res.cloudinary.com/dcbvputnw/image/upload/v1744123336/ultimate-car-mainten-hero_y9tpci.avif",
+  "https://res.cloudinary.com/dcbvputnw/image/upload/v1744123286/experience-gm-oil-change_femgdk.avif",
+  "https://res.cloudinary.com/dcbvputnw/image/upload/v1744122824/carw_rdnaqa.webp",
+  "https://res.cloudinary.com/dcbvputnw/image/upload/v1744172529/team-pic_qppqta.jpg",
 ];
 
 const Banner: React.FC = () => {

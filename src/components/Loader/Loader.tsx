@@ -1,7 +1,7 @@
 // src/components/Loader/Loader.tsx
 import { FC } from "react";
 import { motion } from "framer-motion";
-import logo from "../../../public/Car Wash site logo.png";
+import logo from "../../../public/Car_Wash.png";
 
 const Loader: FC = () => {
   return (
